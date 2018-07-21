@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+ <suite name="Suite">
+ <listeners>
+        <listener class-name="com.nrms.extentreports.listener.ExtentReporterNG"/>
+    </listeners>
+	<parameter name="admin_user" value="aaa"></parameter>
+    <parameter name="sm_user" value="bbb"></parameter>
+    <parameter name="pm_user" value="ccc"></parameter>
+	<parameter name="qam_user" value="ddd"></parameter>
+	<parameter name="employee_user" value="eee"></parameter>
+	<parameter name="hr_user" value="fff"></parameter>
+	<parameter name="password" value="123"></parameter>
+	<parameter name="baseURL" value="http://10.10.10.10/nrms/nrms/public/"></parameter>
+    <parameter name="filename" value="credentials.csv"></parameter>
+    <parameter name="file" value="datafile.properties"></parameter>
+    
+
+  <test name="Test">
+    <classes>
+      <class name="com.nrms.loginspecs.LoginTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="TestLoginFailure">  
+		<classes>
+			<class name="com.nrms.loginspecs.LoginFailureTest"/>
+		
+		</classes>
+	</test>
+	<test name="TestForgotPassword">  
+		<classes>
+			<class name="com.nrms.loginspecs.PasswordResetTest" />
+		</classes>
+	</test>
+	<test name="TestRoles">  
+		<classes>
+			<class name="com.nrms.RolesSpecs.TestAdminRoles" />
+			<class name="com.nrms.RolesSpecs.TestSMRole" />
+			<class name="com.nrms.RolesSpecs.TestPMRole" />
+			<class name="com.nrms.RolesSpecs.TestHRRoles" />
+		    <class name="com.nrms.RolesSpecs.TestEmployeeRole" />
+		</classes>
+	</test>
+
+
+<test name="TestKPC">  
+		<classes>
+			<class name="com.nrms.kpc.edit_kpc" />
+			<class name="com.nrms.kpc.KeyPerformanceCriteria" />
+			
+		</classes>
+	</test>
+</suite> <!-- Suite -->
